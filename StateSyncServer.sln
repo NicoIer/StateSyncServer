@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCore", "GameCore\GameCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoServerWeb", "DemoServerWeb\DemoServerWeb.csproj", "{A0876C1B-3F07-474D-9D9D-083D7829D959}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoDummyClient", "DemoDummyClient\DemoDummyClient.csproj", "{C9F752AA-3FFF-4C77-A6C6-505ABFCE0AA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoClient", "DemoClient\DemoClient.csproj", "{C9F752AA-3FFF-4C77-A6C6-505ABFCE0AA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

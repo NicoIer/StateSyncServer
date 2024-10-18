@@ -4,11 +4,11 @@ using Network.Server;
 
 namespace Server.Game
 {
-    public class GameServer : NetworkMgr
+    public class MyEntitySystem : EntitySystem
     {
-        public static readonly ConcurrentBag<GameServer> mgrs = new ConcurrentBag<GameServer>();
+        public static readonly ConcurrentBag<MyEntitySystem> mgrs = new ConcurrentBag<MyEntitySystem>();
         public int ThreadId { get; private set; }
-        public static event Action<GameServer> OnAddServer = delegate { };
+        public static event Action<MyEntitySystem> OnAddServer = delegate { };
 
         public override void OnInit(NetworkServer t)
         {

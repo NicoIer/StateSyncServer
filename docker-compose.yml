@@ -4,3 +4,9 @@
     build:
       context: .
       dockerfile: GameServer/Dockerfile
+
+  projectzeroserver:
+    image: projectzeroserver
+    build:
+      context: .
+      dockerfile: ProjectZeroServer/Dockerfile

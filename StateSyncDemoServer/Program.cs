@@ -4,9 +4,11 @@ using System.Text;
 using MagicOnion;
 using MagicOnion.Server;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Network.Server;
 using UnityToolkit;
 using Serilog;
 using Serilog.Events;
+using Server.Game;
 
 string logPath = $"./log/{DateTime.Now:yyyy-MM-dd}-.txt";
 Console.WriteLine(logPath);
@@ -33,10 +35,8 @@ Log.Logger = loggerConfig.CreateLogger();
 var builder = WebApplication.CreateBuilder(args);
 
 
-
-
-builder.Services.AddSerilog();    // Add this line(Serilog)
-builder.Services.AddGrpc();       // Add this line(Grpc.AspNetCore)
+builder.Services.AddSerilog(); // Add this line(Serilog)
+builder.Services.AddGrpc(); // Add this line(Grpc.AspNetCore)
 builder.Services.AddMagicOnion(); // Add this line(MagicOnion.Server)
 
 
@@ -66,4 +66,12 @@ app.UseSerilogRequestLogging(); // Add this line(Serilog)
 
 app.MapMagicOnionService(); // Add this line(MagicOnion.Server)
 
+TelepathyServerSocket socket = new TelepathyServerSocket();
+socket.port = 8080;
+
+NetworkServer server = new NetworkServer(socket, 240, true);
+server.AddSystem<MyEntitySystem>();
+server.AddSystem<NetworkServerTime>();
+Task task = server.Run();
 app.Run();
+task.Dispose();
